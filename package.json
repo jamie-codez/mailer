@@ -1,6 +1,6 @@
 {
   "name": "@blacdot/nestjs-mailer",
-  "version": "1.0.4",
+  "version": "1.0.1",
   "description": "A nestjs mail client library",
   "author": {
     "name": "Jamie Omondi",
@@ -8,12 +8,13 @@
     "url": "https://github.com/jamie-codez"
   },
   "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jamie-codez/nestjs-mailer"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "license": "MIT",
   "scripts": {
