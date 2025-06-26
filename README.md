@@ -1,4 +1,4 @@
-<h1 align="center">Mailer</h1>
+<h1 align="center">NestJS Mailer</h1>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@your-scope/mailer" target="_blank">
@@ -26,9 +26,9 @@ A powerful, flexible email module featuring template support with Handlebars and
 ## Installation
 
 ```bash
-npm install @your-scope/mailer
+npm install @blacdot/nestjs-mailer
 # or
-yarn add @your-scope/mailer
+yarn add @blacdot/nestjs-mailer
 ```
 
 ## Quick Start
