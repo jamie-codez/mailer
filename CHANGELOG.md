@@ -1,0 +1,25 @@
+## [1.0.1](https://github.com/jamie-codez/mailer/compare/v1.0.0...v1.0.1) (2025-06-26)
+
+
+### Bug Fixes
+
+* **github:** :package: using one workflow ([7701132](https://github.com/jamie-codez/mailer/commit/7701132b20307fcd8cb11f95456bded1506323dc))
+
+# 1.0.0 (2025-06-26)
+
+
+### Bug Fixes
+
+* **ci:** :hammer: using install instead of ci ([0c7ab07](https://github.com/jamie-codez/mailer/commit/0c7ab079282b97138b298501c132f653ee9fb692))
+* **ci:** :package: packing on main ([3832471](https://github.com/jamie-codez/mailer/commit/3832471d5062a8a858c2adefc174ca757b6ccf3b))
+* **ci:** :package: packing on main ([4f9ab21](https://github.com/jamie-codez/mailer/commit/4f9ab211fb0c2375a9ad77863b6af12c59594aaa))
+* **ci:** :package: packing on main ([e620dcb](https://github.com/jamie-codez/mailer/commit/e620dcb808e6a2bc72c95cd5fa53376656e08883))
+* **github:** :package: suing one workflow ([5afc197](https://github.com/jamie-codez/mailer/commit/5afc1974fdfd9bf5ec4616d17c4964c7728cf106))
+* **github:** :package: using one workflow ([c624a55](https://github.com/jamie-codez/mailer/commit/c624a5571699145bcc606df69d0ecea740408bc2))
+* **github:** :package: using one workflow ([3d896fe](https://github.com/jamie-codez/mailer/commit/3d896fe57b188227388e5527ca998384d66f10c1))
+* **github:** :package: using one workflow ([56f48bf](https://github.com/jamie-codez/mailer/commit/56f48bf286993a7d4633b4937837f897f924fb42))
+
+
+### Features
+
+* **initial commit:** :package: Initial commit with features ([71d1aee](https://github.com/jamie-codez/mailer/commit/71d1aee8e0d5073bce053dedb01c0b0b6c64e482))
