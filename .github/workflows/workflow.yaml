@@ -66,43 +66,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 
-      - name: Build package
-        run: npm run build
-      
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: v${{ github.ref_name }}
-          tag_name: v${{ github.ref_name }}
-          body: |
-            ## What's Changed
-            - See the full changelog in CHANGELOG.md
-            
-            ### 🚀 Features
-            - Add new features
-            
-            ### 🐛 Bug Fixes
-            - Fix various issues
-          files: |
-            dist/*.js
-            package.json
-            README.md
-            CHANGELOG.md
-            LICENSE
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Publish to npm
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
-      
-      - name: Publish package to npm
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
       - name: Clean up the semantic-release packages installation
         run: |
           npm uninstall --save-dev semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/npm @semantic-release/github
