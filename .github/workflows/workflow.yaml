@@ -50,6 +50,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@blacdot'
 
       - name: Install Dependencies
         run: npm install
@@ -64,39 +66,18 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 
-  publish-github-packages:
-    needs: release
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@blacdot'
-      
-      - name: Install dependencies
-        run: npm install
-      
       - name: Build package
         run: npm run build
       
       - name: Configure .npmrc for GitHub Packages
         run: |
           echo "@blacdot:registry=https://npm.pkg.github.com" > .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       
       - name: Publish to GitHub Packages
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Remove .npmrc
-        run: rm .npmrc
+      
+      - name: Clean up .npmrc
+        run: rm -f .npmrc
