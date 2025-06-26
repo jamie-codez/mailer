@@ -66,21 +66,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: v${{ github.ref_name }}
-          tag_name: v${{ github.ref_name }}
-          body_path: CHANGELOG.md
-          files: |
-            dist/**
-            package.json
-            README.md
-            CHANGELOG.md
-            LICENSE
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Clean up the semantic-release packages installation
         if: always()
