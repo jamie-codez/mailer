@@ -7,7 +7,7 @@
     "email": "cruiseomondi90@gmail.com",
     "url": "https://github.com/jamie-codez"
   },
-  "private": true,
+  "private": false,
   "license": "MIT",
   "scripts": {
     "build": "nest build",
