@@ -72,12 +72,15 @@ jobs:
       - name: Configure .npmrc for GitHub Packages
         run: |
           echo "@blacdot:registry=https://npm.pkg.github.com" > .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "//npm.pkg.github.com/:always-auth=true" >> .npmrc
+          echo "registry=https://npm.pkg.github.com" >> .npmrc
       
       - name: Publish to GitHub Packages
-        run: npm publish
+        run: npm publish --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.GITHUB_TOKEN}}
       
       - name: Clean up .npmrc
         run: rm -f .npmrc
