@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/jamie-codez/mailer/compare/v1.0.1...v1.0.2) (2025-06-26)
+
+
+### Bug Fixes
+
+* **github:** :package: using one workflow ([b54c05e](https://github.com/jamie-codez/mailer/commit/b54c05ecc2d31840e6ac6af0dd02fab564130ebd))
+* **github:** :package: using one workflow ([92510d4](https://github.com/jamie-codez/mailer/commit/92510d402f2ad69a5441f1ba8973a0d70af85842))
+
 ## [1.0.1](https://github.com/jamie-codez/mailer/compare/v1.0.0...v1.0.1) (2025-06-26)
 
 
