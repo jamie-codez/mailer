@@ -26,12 +26,44 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
 
     - name: Install dependencies and run tests
-      run: npm install && npm run jest --rootDir=.
+      run: npm install && npm run test --rootDir=.
       env:
         ALLOW_MOCK_TEMPLATES: 'true'
     
     - name: Run build
       run: npm run build
+
+  release:
+    needs: test
+    permissions:
+      contents: write
+      packages: write
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for all tags and branches
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install semantic-release and plugins
+        run: |
+          npm install --save-dev semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/npm @semantic-release/github
+
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
 
   publish-npm:
     name: Publish to NPM
