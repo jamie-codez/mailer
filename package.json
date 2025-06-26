@@ -1,6 +1,6 @@
 {
-  "name": "@nest-js/mailer",
-  "version": "1.0.3",
+  "name": "@blacdot/nestjs-mailer",
+  "version": "1.0.1",
   "description": "A nestjs mail client library",
   "author": {
     "name": "Jamie Omondi",
