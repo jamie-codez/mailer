@@ -1,5 +1,5 @@
 {
-  "name": "@nestjs/mailer",
+  "name": "@nest-js/mailer",
   "version": "1.0.3",
   "description": "A nestjs mail client library",
   "author": {
