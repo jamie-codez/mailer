@@ -26,11 +26,8 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
     
-    - name: Install dependencies
-      run: npm install
-    
-    - name: Run tests
-      run: npm test
+    - name: Install dependencies and run tests
+      run: npm install && npm run jest --rootDir=.
       env:
         ALLOW_MOCK_TEMPLATES: 'true'
     
