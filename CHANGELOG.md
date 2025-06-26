@@ -1,3 +1,11 @@
+## [1.0.3](https://github.com/jamie-codez/nestjs-mailer/compare/v1.0.2...v1.0.3) (2025-06-26)
+
+
+### Bug Fixes
+
+* **node:** :package: upadte git link ([d13b76f](https://github.com/jamie-codez/nestjs-mailer/commit/d13b76f5b87691a8acb7bd672b520103427a75d0))
+* **node:** :package: using public access ([556cd4a](https://github.com/jamie-codez/nestjs-mailer/commit/556cd4a247efc7ec65f70aabeb868206aeb707f6))
+
 ## [1.0.2](https://github.com/jamie-codez/mailer/compare/v1.0.1...v1.0.2) (2025-06-26)
 
 
