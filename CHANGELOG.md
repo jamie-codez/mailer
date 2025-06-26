@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/jamie-codez/nestjs-mailer/compare/v1.0.11...v1.0.12) (2025-06-26)
+
+
+### Bug Fixes
+
+* **package:** :package: updated publish action ([56d673b](https://github.com/jamie-codez/nestjs-mailer/commit/56d673b79b9309812dc307c536e7b7e1525a45b0))
+
 ## [1.0.11](https://github.com/jamie-codez/nestjs-mailer/compare/v1.0.10...v1.0.11) (2025-06-26)
 
 
