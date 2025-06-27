@@ -1,11 +1,11 @@
 <h1 align="center">NestJS Mailer</h1>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@your-scope/mailer" target="_blank">
-    <img src="https://img.shields.io/npm/v/@your-scope/mailer.svg" alt="NPM Version" />
+  <a href="https://www.npmjs.com/package/@blacdot/nestjs-mailer" target="_blank">
+    <img src="https://img.shields.io/npm/v/@blacdot/nestjs-mailer.svg" alt="NPM Version" />
   </a>
-  <a href="https://www.npmjs.com/package/@your-scope/mailer" target="_blank">
-    <img src="https://img.shields.io/npm/l/@your-scope/mailer.svg" alt="Package License" />
+  <a href="https://www.npmjs.com/package/@blacdot/nestjs-mailer" target="_blank">
+    <img src="https://img.shields.io/npm/l/@blacdot/nestjs-mailer.svg" alt="Package License" />
   </a>
   <a href="https://github.com/semantic-release/semantic-release" target="_blank">
     <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="Semantic Release" />
@@ -36,7 +36,7 @@ yarn add @blacdot/nestjs-mailer
 1. **Install the required dependencies**:
 
 ```bash
-npm install @your-scope/mailer @nestjs/core @nestjs/common
+npm install @blacdot/nestjs-mailer @nestjs/core @nestjs/common
 ```
 
 2. **Create a simple application** (`app.ts`):
@@ -44,7 +44,7 @@ npm install @your-scope/mailer @nestjs/core @nestjs/common
 ```typescript
 import { NestFactory } from '@nestjs/core';
 import { Module } from '@nestjs/common';
-import { MailerModule, MailerService, TransportType } from '@your-scope/mailer';
+import { MailerModule, MailerService, TransportType } from '@blacdot/nestjs-mailer';
 
 @Module({
   imports: [
