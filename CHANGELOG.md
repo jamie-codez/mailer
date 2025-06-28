@@ -1,3 +1,14 @@
+# [1.1.0](https://github.com/jamie-codez/nestjs-mailer/compare/v1.0.16...v1.1.0) (2025-06-28)
+
+
+### Features
+
+* **naming:** :memo: code fixes ([b8fdeeb](https://github.com/jamie-codez/nestjs-mailer/commit/b8fdeeb3fec42340484f50e360f802767f4c0da8))
+* **node:** :memo: removed prebuild ([3a46814](https://github.com/jamie-codez/nestjs-mailer/commit/3a468143c72ab6a84af5c03b52a66a22874b3a12))
+* **templating:** :memo: using handlebars by default ([3c711ad](https://github.com/jamie-codez/nestjs-mailer/commit/3c711ad3d96a17d8b5fa1dafc22571cb9740fb32))
+* **templating:** :memo: using handlebars by default ([2004ba3](https://github.com/jamie-codez/nestjs-mailer/commit/2004ba33a7e8c3c1e2e7b6177e68a3d96ce1c5d8))
+* **templating:** :memo: using handlebars by default ([10b3c78](https://github.com/jamie-codez/nestjs-mailer/commit/10b3c785a353f2819b6253636995f9ee0ce4d227))
+
 ## [1.0.16](https://github.com/jamie-codez/nestjs-mailer/compare/v1.0.15...v1.0.16) (2025-06-26)
 
 
