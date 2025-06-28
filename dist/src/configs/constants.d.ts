@@ -1,0 +1,10 @@
+export declare enum TransportType {
+    NODEMAILER = "NODEMAILER",
+    RESEND = "RESEND",
+    MAILGUN = "MAILGUN",
+    SENDGRID = "SENDGRID",
+    TWILIO = "TWILIO",
+    SENDINBLUE = "SENDINBLUE",
+    MAILCHIMP = "MAILCHIMP",
+    GMAIL = "GMAIL"
+}
