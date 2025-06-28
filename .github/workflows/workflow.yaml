@@ -53,8 +53,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        working-directory: .
         run: npx semantic-release
       - name: Clean up the semantic-release packages installation
         if: always()
         run: |
-          npm uninstall --save-dev semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/npm @semantic-release/github @semantic-release/npm
+          npm uninstall --save semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/npm @semantic-release/github @semantic-release/npm
