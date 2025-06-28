@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import * as handlebars from "handlebars";
 import * as path from "node:path";
 import * as fs from "node:fs";
-import { MailerTemplateConfig } from "./interfaces/mailer.options.interface";
+import { MailerTemplateConfig } from "../dtos/mailer.options.interface";
 
 @Injectable()
 export class TemplateService {

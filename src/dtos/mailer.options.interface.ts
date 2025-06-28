@@ -1,4 +1,4 @@
-import { TransportType } from "../constants";
+import { TransportType } from "../configs/constants";
 
 export interface MailerConfig {
   transport: TransportType;
@@ -8,7 +8,6 @@ export interface MailerConfig {
 
 export interface MailerTemplateConfig {
   directory: string;
-  engine: "hbs" | "handlebars";
   options: {
     [key: string]: any;
   };
@@ -18,6 +17,9 @@ export interface TransportConfig {
   auth: {
     user: string;
     pass: string;
+  };
+  defaults?: {
+    from: string;
   };
   secure?: boolean;
   host?: string;

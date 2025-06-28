@@ -1,18 +1,18 @@
 import { DynamicModule, Module, Provider } from "@nestjs/common";
-import { MailerService } from "./mailer.service";
-import { MailerConfig, MailerTemplateConfig } from "./interfaces/mailer.options.interface";
+import { BlacdotMailerService } from "./services/blacdot.mailer.service";
+import { MailerConfig, MailerTemplateConfig } from "./dtos/mailer.options.interface";
 import { MailerTransport } from "./transports/mailer.transport";
-import { TransportType } from "./constants";
-import { TemplateService } from "./template.service";
+import { TransportType } from "./configs/constants";
+import { TemplateService } from "./services/template.service";
 
 @Module({})
-export class MailerModule {
+export class BlacdotMailerModule {
   static forRoot(config: MailerConfig): DynamicModule {
     const transportProvider: Provider = {
       provide: "MAILER_TRANSPORT",
       useFactory: () => this.createTransport(config),
     };
-    const providers:Provider[] = [transportProvider, MailerService];
+    const providers:Provider[] = [transportProvider, BlacdotMailerService];
     if (config.templateConfig) {
       providers.push({
         provide: "TEMPLATE_SERVICE",
@@ -22,9 +22,30 @@ export class MailerModule {
       });
     }
     return {
-      module: MailerModule,
+      module: BlacdotMailerModule,
       providers,
-      exports: [MailerService],
+      exports: [BlacdotMailerService],
+    };
+  }
+
+  static forRootAsync(config: MailerConfig): DynamicModule {
+    const transportProvider: Provider = {
+      provide: "MAILER_TRANSPORT",
+      useFactory: () => this.createTransport(config),
+    };
+    const providers:Provider[] = [transportProvider, BlacdotMailerService];
+    if (config.templateConfig) {
+      providers.push({
+        provide: "TEMPLATE_SERVICE",
+        useFactory: () => {
+          return new TemplateService({...config.templateConfig} as MailerTemplateConfig);
+        },
+      });
+    }
+    return {
+      module: BlacdotMailerModule,
+      providers,
+      exports: [BlacdotMailerService],
     };
   }
 
