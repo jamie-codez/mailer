@@ -67,7 +67,7 @@
     "prerelease": "npm run build",
     "release": "semantic-release",
     "postrelease": "git push --follow-tags origin main",
-    "publish": "npm publish --access public --registry https://registry.npmjs.org --tag next",
+    "publish": "npm publish --access public --registry https://registry.npmjs.org --tag next"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
