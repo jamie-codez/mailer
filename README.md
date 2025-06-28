@@ -249,4 +249,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## License
 
-Nest is [MIT licensed](./LICENSE).
+This project is [MIT licensed](./LICENSE).
