@@ -43,13 +43,10 @@ npm install @blacdot/nestjs-mailer @nestjs/core @nestjs/common
 2. **Create a simple application** (`app.ts`):
 
 ```typescript
-import { NestFactory } from '@nestjs/core';
-import { Module } from '@nestjs/common';
-import { MailerModule, MailerService, TransportType } from '@blacdot/nestjs-mailer';
 
 @Module({
   imports: [
-    MailerModule.forRoot({
+    BlacdotMailerModule.forRoot({
       transporter: TransportType.NODEMAILER, // Use the NodeMailer transport, when you use the other named transports (not nodemailer) just supply the auth and defaults(also optional) options in the transportConfig
       transport: {
         host: 'smtp.example.com', // Replace with your SMTP server
@@ -77,7 +74,7 @@ async function bootstrap() {
     const app = await NestFactory.createApplicationContext(AppModule);
 
     // Get the MailerService
-    const mailerService = app.get(MailerService);
+    const mailerService = app.get(BlacdotMailerService);
 
     // Send an email using a template
     const result = await mailerService.sendMail({

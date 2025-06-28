@@ -1,14 +1,14 @@
 import { TransportType } from "../configs/constants";
 
 export interface MailerConfig {
-  transport: TransportType;
-  transportConfig: TransportConfig;
-  templateConfig?: MailerTemplateConfig;
+  transporter: TransportType;
+  transport: TransportConfig;
+  template?: MailerTemplateConfig;
 }
 
 export interface MailerTemplateConfig {
   directory: string;
-  options: {
+  options?: {
     [key: string]: any;
   };
 }

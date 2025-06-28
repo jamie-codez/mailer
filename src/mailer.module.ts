@@ -13,11 +13,11 @@ export class BlacdotMailerModule {
       useFactory: () => this.createTransport(config),
     };
     const providers:Provider[] = [transportProvider, BlacdotMailerService];
-    if (config.templateConfig) {
+    if (config.template) {
       providers.push({
         provide: "TEMPLATE_SERVICE",
         useFactory: () => {
-          return new TemplateService({...config.templateConfig} as MailerTemplateConfig);
+          return new TemplateService({...config.template} as MailerTemplateConfig);
         },
       });
     }
@@ -34,11 +34,11 @@ export class BlacdotMailerModule {
       useFactory: () => this.createTransport(config),
     };
     const providers:Provider[] = [transportProvider, BlacdotMailerService];
-    if (config.templateConfig) {
+    if (config.template) {
       providers.push({
         provide: "TEMPLATE_SERVICE",
         useFactory: () => {
-          return new TemplateService({...config.templateConfig} as MailerTemplateConfig);
+          return new TemplateService({...config.template} as MailerTemplateConfig);
         },
       });
     }
@@ -50,21 +50,21 @@ export class BlacdotMailerModule {
   }
 
   private static createTransport(config: MailerConfig) {
-    const { transport, transportConfig } = config;
+    const { transporter, transport } = config;
     const mailConfig = {
-      ...transportConfig,
+      ...transport,
     };
-    if (transport === TransportType.NODEMAILER && !mailConfig.host) {
+    if (transporter === TransportType.NODEMAILER && !mailConfig.host) {
       throw new Error("Host is required for nodemailer transport");
     }
-    if (transport === TransportType.NODEMAILER) {
+    if (transporter === TransportType.NODEMAILER) {
       return new MailerTransport({
         ...mailConfig,
         secure: mailConfig.secure || false,
         port: mailConfig.port || 465,
       });
     }
-    if (transport === TransportType.GMAIL) {
+    if (transporter === TransportType.GMAIL) {
       return new MailerTransport({
         ...mailConfig,
         host: mailConfig.host || "smtp.gmail.com",
@@ -72,21 +72,21 @@ export class BlacdotMailerModule {
         secure: mailConfig.secure || true,
       });
     }
-    if (transport === TransportType.MAILGUN) {
+    if (transporter === TransportType.MAILGUN) {
       return new MailerTransport({
         ...mailConfig,
         host: mailConfig.host || "smtp.mailgun.org",
         secure: mailConfig.secure || true,
       });
     }
-    if (transport === TransportType.RESEND) {
+    if (transporter === TransportType.RESEND) {
       return new MailerTransport({
         ...mailConfig,
         host: mailConfig.host || "smtp.resend.com",
         secure: mailConfig.secure || true,
       });
     }
-    if (transport === TransportType.MAILCHIMP) {
+    if (transporter === TransportType.MAILCHIMP) {
       return new MailerTransport({
         ...mailConfig,
         host: mailConfig.host || "smtp.mandrillapp.com",
@@ -94,7 +94,7 @@ export class BlacdotMailerModule {
         secure: mailConfig.secure || true,
       });
     }
-    if (transport === TransportType.TWILIO) {
+    if (transporter === TransportType.TWILIO) {
       return new MailerTransport({
         ...mailConfig,
         host: mailConfig.host || "smtp.sendgrid.net",
@@ -102,7 +102,7 @@ export class BlacdotMailerModule {
         secure: mailConfig.secure || true,
       });
     }
-    if (transport === TransportType.SENDGRID) {
+    if (transporter === TransportType.SENDGRID) {
       return new MailerTransport({
         ...mailConfig,
         host: mailConfig.host || "smtp.sendgrid.net",
@@ -110,7 +110,7 @@ export class BlacdotMailerModule {
         secure: mailConfig.secure || true,
       });
     }
-    if (transport === TransportType.SENDINBLUE) {
+    if (transporter === TransportType.SENDINBLUE) {
       return new MailerTransport({
         ...mailConfig,
         host: mailConfig.host || "smtp.sendinblue.com",
