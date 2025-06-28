@@ -48,7 +48,7 @@ jobs:
         run: npm run build
       - name: Install semantic-release and plugins
         run: |
-          npm install --save-dev semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/npm @semantic-release/github
+          npm install --save-dev semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/npm @semantic-release/github @semantic-release/npm
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -57,4 +57,4 @@ jobs:
       - name: Clean up the semantic-release packages installation
         if: always()
         run: |
-          npm uninstall --save-dev semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/npm @semantic-release/github
+          npm uninstall --save-dev semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/npm @semantic-release/github @semantic-release/npm
