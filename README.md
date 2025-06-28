@@ -12,7 +12,8 @@
   </a>
 </p>
 
-A powerful, flexible email module featuring template support with Handlebars and seamless integration with various email transport providers.
+A powerful, flexible email module featuring template support with Handlebars and seamless integration with various email
+transport providers.
 
 ## Features
 
@@ -49,19 +50,21 @@ import { MailerModule, MailerService, TransportType } from '@blacdot/nestjs-mail
 @Module({
   imports: [
     MailerModule.forRoot({
-      transport: TransportType.NODEMAILER,
-      transportConfig: {
+      transporter: TransportType.NODEMAILER, // Use the NodeMailer transport, when you use the other named transports (not nodemailer) just supply the auth and defaults(also optional) options in the transportConfig
+      transport: {
         host: 'smtp.example.com', // Replace with your SMTP server
         port: 587,
         secure: false,
+        defaults: {
+          from: 'your-email@example.com', // Replace with your email, this will be used as the "from" address if not specified in the mailMessage object
+        },
         auth: {
           user: 'your-email@example.com', // Replace with your email
           pass: 'your-password', // Replace with your password
         },
       },
-      templateConfig: {
+      template: {
         directory: __dirname + '/templates', // Path to your templates
-        engine: 'handlebars',
       },
     }),
   ],
@@ -118,6 +121,7 @@ bootstrap();
             margin: 0 auto;
             padding: 20px;
         }
+
         .header {
             background-color: #4CAF50;
             color: white;
@@ -125,12 +129,14 @@ bootstrap();
             text-align: center;
             border-radius: 5px 5px 0 0;
         }
+
         .content {
             padding: 20px;
             border: 1px solid #ddd;
             border-top: none;
             border-radius: 0 0 5px 5px;
         }
+
         .footer {
             text-align: center;
             margin-top: 20px;
@@ -140,24 +146,24 @@ bootstrap();
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Welcome to {{company}}!</h1>
-    </div>
-    <div class="content">
-        <p>Hello {{name}},</p>
-        <p>Thank you for joining {{company}}. We're excited to have you on board!</p>
-        <p>Here are some things you can do to get started:</p>
-        <ul>
-            <li>Complete your profile</li>
-            <li>Explore our features</li>
-            <li>Connect with other users</li>
-        </ul>
-        <p>If you have any questions, feel free to contact our support team.</p>
-        <p>Best regards,<br>The {{company}} Team</p>
-    </div>
-    <div class="footer">
-        &copy; {{year}} {{company}}. All rights reserved.
-    </div>
+<div class="header">
+    <h1>Welcome to {{company}}!</h1>
+</div>
+<div class="content">
+    <p>Hello {{name}},</p>
+    <p>Thank you for joining {{company}}. We're excited to have you on board!</p>
+    <p>Here are some things you can do to get started:</p>
+    <ul>
+        <li>Complete your profile</li>
+        <li>Explore our features</li>
+        <li>Connect with other users</li>
+    </ul>
+    <p>If you have any questions, feel free to contact our support team.</p>
+    <p>Best regards,<br>The {{company}} Team</p>
+</div>
+<div class="footer">
+    &copy; {{year}} {{company}}. All rights reserved.
+</div>
 </body>
 </html>
 ```
@@ -177,9 +183,10 @@ node app.js
 1. Create a template file (e.g., `templates/welcome.hbs`):
 
 ```handlebars
+
 <div>
-  <h1>Welcome, {{name}}!</h1>
-  <p>Thank you for joining our service.</p>
+    <h1>Welcome, {{name}}!</h1>
+    <p>Thank you for joining our service.</p>
 </div>
 ```
 
@@ -242,7 +249,6 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 - [Nodemailer](https://nodemailer.com/)
 - [Handlebars](https://handlebarsjs.com/)
-
 
 ## License
 

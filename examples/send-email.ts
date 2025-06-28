@@ -10,8 +10,8 @@
 import { NestFactory } from '@nestjs/core';
 import { Module } from '@nestjs/common';
 import { MailerModule } from '../src/mailer.module';
-import { MailerService } from '../src/mailer.service';
-import { TransportType } from '../src/constants';
+import { BlacdotMailerService } from '../src/services/blacdot.mailer.service';
+import { TransportType } from '../src/configs/constants';
 
 @Module({
   imports: [
@@ -42,7 +42,7 @@ async function main() {
     const app = await NestFactory.createApplicationContext(AppModule);
 
     // Get the MailerService
-    const mailerService = app.get(MailerService);
+    const mailerService = app.get(BlacdotMailerService);
 
     // Send an email using a template
     const result = await mailerService.sendMail({
