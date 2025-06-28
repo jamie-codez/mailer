@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/jamie-codez/nestjs-mailer/compare/v1.2.3...v1.2.4) (2025-06-28)
+
+
+### Bug Fixes
+
+* **package:** :package: release fixes size redusction ([bdebd98](https://github.com/jamie-codez/nestjs-mailer/commit/bdebd9849af36675b06e08126c0136e0c99f61c5))
+
 ## [1.2.3](https://github.com/jamie-codez/nestjs-mailer/compare/v1.2.2...v1.2.3) (2025-06-28)
 
 
