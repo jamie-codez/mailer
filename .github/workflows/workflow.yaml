@@ -1,5 +1,4 @@
-name: Publish to NPM
-
+name: Build and Release the package to NPM
 on:
   push:
     branches:
@@ -25,8 +24,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Install dependencies and run tests
-        run: npm install
+      - name: Install dependencies
+        run: npm install && rm -rf dist
       - name: Run build
         run: npm run build
 
