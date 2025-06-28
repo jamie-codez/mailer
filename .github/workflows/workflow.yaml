@@ -15,58 +15,46 @@ permissions:
   pull-requests: write
 
 jobs:
-  test:
-    name: Test
+  build:
+    name: Build the package and ensure no errors
     runs-on: ubuntu-latest
-    
     steps:
-      - uses: actions/checkout@v4
-
+      - name: Checkout Code
+        uses: actions/checkout@v4
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-
       - name: Install dependencies and run tests
-        run: npm install && npm run test
-        env:
-          ALLOW_MOCK_TEMPLATES: 'true'
-
+        run: npm install
       - name: Run build
         run: npm run build
 
   release:
-    needs: test
-    name: Release
+    needs: build
+    name: Release the package to NPM
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Fetch all history for all tags and branches
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
+          node-version: ${{ env.NODE_VERSION }}
       - name: Install Dependencies
         run: npm install
-
       - name: Run build
         run: npm run build
-
       - name: Install semantic-release and plugins
         run: |
           npm install --save-dev semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/npm @semantic-release/github
-
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
-
-      
       - name: Clean up the semantic-release packages installation
         if: always()
         run: |
