@@ -1,3 +1,12 @@
+## [1.2.3](https://github.com/jamie-codez/nestjs-mailer/compare/v1.2.2...v1.2.3) (2025-06-28)
+
+
+### Bug Fixes
+
+* **release:** :memo: release fixes ([3acc629](https://github.com/jamie-codez/nestjs-mailer/commit/3acc6290c07abee23af0171696edfc1debbc4aef))
+* **release:** :memo: release fixes package ([676fc63](https://github.com/jamie-codez/nestjs-mailer/commit/676fc638ebe7d1a16a8af8acc021cb2a45fe443d))
+* **release:** :memo: release fixes versions ([f0c35df](https://github.com/jamie-codez/nestjs-mailer/commit/f0c35dffb5f0949d4fbc97a58307058e41edae7a))
+
 ## [1.2.2](https://github.com/jamie-codez/nestjs-mailer/compare/v1.2.1...v1.2.2) (2025-06-28)
 
 
