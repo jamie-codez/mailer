@@ -1,42 +1,33 @@
-/**
- * Example script to demonstrate how to use the mailer library
- * 
- * To run this example:
- * 1. Build the library: npm run build
- * 2. Compile this script: npx tsc examples/send-email.ts --esModuleInterop
- * 3. Run the compiled script: node examples/send-email.js
- */
-
-import { NestFactory } from '@nestjs/core';
-import { Module } from '@nestjs/common';
-import { MailerModule } from '../src/mailer.module';
-import { BlacdotMailerService } from '../src/services/blacdot.mailer.service';
-import { TransportType } from '../src/configs/constants';
+import { TransportType } from "../src/configs/constants";
+import { BlacdotMailerModule, BlacdotMailerService } from "../src";
+import { Module } from "@nestjs/common";
+import { NestFactory } from "@nestjs/core";
 
 @Module({
   imports: [
-    MailerModule.forRoot({
-      transport: TransportType.NODEMAILER,
-      transportConfig: {
+    BlacdotMailerModule.forRoot({
+      transporter: TransportType.NODEMAILER, // Use the NodeMailer transport, when you use the other named transports (not nodemailer) just supply the auth and defaults(also optional) options in the transportConfig
+      transport: {
         host: 'smtp.example.com', // Replace with your SMTP server
         port: 587,
         secure: false,
+        defaults: {
+          from: 'your-email@example.com', // Replace with your email, this will be used as the "from" address if not specified in the mailMessage object
+        },
         auth: {
           user: 'your-email@example.com', // Replace with your email
           pass: 'your-password', // Replace with your password
         },
       },
-      templateConfig: {
+      template: {
         directory: __dirname + '/templates', // Path to your templates
-        engine: 'handlebars',
-        options: {},
       },
     }),
   ],
 })
 class AppModule {}
 
-async function main() {
+async function bootstrap() {
   try {
     // Create the application
     const app = await NestFactory.createApplicationContext(AppModule);
@@ -66,4 +57,4 @@ async function main() {
   }
 }
 
-main();
+bootstrap();
